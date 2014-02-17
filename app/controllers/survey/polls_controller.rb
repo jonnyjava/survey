@@ -6,8 +6,9 @@ module Survey
 
     # GET /surveys
     def index
-      @surveys = Survey::Survey.all
+      @surveys = Survey.all
     end
+
 
     # GET /surveys/1
     def show
