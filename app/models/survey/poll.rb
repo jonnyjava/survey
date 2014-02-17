@@ -1,5 +1,5 @@
 module Survey
-  class Survey < ActiveRecord::Base
+  class Poll < ActiveRecord::Base
     has_many :questions
   end
 end

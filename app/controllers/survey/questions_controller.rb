@@ -3,7 +3,7 @@ require_dependency "survey/application_controller"
 module Survey
   class QuestionsController < ApplicationController
     before_action :set_question, only: [:show, :edit, :update, :destroy]
-    before_filter :find_survey
+    before_filter :find_poll
     # GET /questions
     def index
       @questions = Question.all
@@ -48,8 +48,8 @@ module Survey
       redirect_to questions_url, notice: 'Question was successfully destroyed.'
     end
 
-    def find_survey
-      @survey = Survey::Survey.find(params[:survey_id])
+    def find_poll
+      @poll = Poll.find(params[:poll_id])
     end
 
     private

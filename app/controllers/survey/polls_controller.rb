@@ -1,63 +1,63 @@
 require_dependency "survey/application_controller"
 
 module Survey
-  class SurveysController < ApplicationController
-    before_action :set_survey, only: [:show, :edit, :update, :destroy]
+  class PollsController < ApplicationController
+    before_action :set_poll, only: [:show, :edit, :update, :destroy]
 
-    # GET /surveys
+    # GET /polls
     def index
-      @surveys = Survey.all
+      @polls = Poll.all
     end
 
 
-    # GET /surveys/1
+    # GET /polls/1
     def show
     end
 
-    # GET /surveys/new
+    # GET /polls/new
     def new
-      @survey = Survey.new
+      @poll = Poll.new
     end
 
-    # GET /surveys/1/edit
+    # GET /polls/1/edit
     def edit
     end
 
-    # POST /surveys
+    # POST /polls
     def create
-      @survey = Survey.new(survey_params)
+      @poll = Poll.new(poll_params)
 
-      if @survey.save
-        redirect_to @survey, notice: 'Survey was successfully created.'
+      if @poll.save
+        redirect_to @poll, notice: 'Poll was successfully created.'
       else
         render action: 'new'
       end
     end
 
-    # PATCH/PUT /surveys/1
+    # PATCH/PUT /polls/1
     def update
-      if @survey.update(survey_params)
-        redirect_to @survey, notice: 'Survey was successfully updated.'
+      if @poll.update(poll_params)
+        redirect_to @poll, notice: 'Poll was successfully updated.'
       else
         render action: 'edit'
       end
     end
 
-    # DELETE /surveys/1
+    # DELETE /polls/1
     def destroy
-      @survey.destroy
-      redirect_to surveys_url, notice: 'Survey was successfully destroyed.'
+      @poll.destroy
+      redirect_to polls_url, notice: 'Poll was successfully destroyed.'
     end
 
     private
       # Use callbacks to share common setup or constraints between actions.
-      def set_survey
-        @survey = Survey.find(params[:id])
+      def set_poll
+        @poll = Poll.find(params[:id])
       end
 
       # Only allow a trusted parameter "white list" through.
-      def survey_params
-        params.require(:survey).permit(:title)
+      def poll_params
+        params.require(:poll).permit(:title)
       end
   end
 end

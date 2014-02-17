@@ -1,4 +1,4 @@
-<h1>Listing surveys</h1>
+<h1>Listing polls</h1>
 
 <table>
   <thead>
@@ -11,16 +11,16 @@
   </thead>
 
   <tbody>
-    <% @surveys.each do |survey| %>
+    <% @polls.each do |poll| %>
       <tr>
-        <td><%= survey.title %></td>
-        <td><%= link_to 'Show', survey %></td>
-        <td><%= link_to 'Edit', edit_survey_path(survey) %></td>
-        <td><%= link_to 'Destroy', survey, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= poll.title %></td>
+        <td><%= link_to 'Show', poll %></td>
+        <td><%= link_to 'Edit', edit_poll_path(poll) %></td>
+        <td><%= link_to 'Destroy', poll, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <br>
 
-<%= link_to 'New Survey', new_survey_path %>
+<%= link_to 'New poll', new_poll_path %>

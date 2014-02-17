@@ -2,11 +2,11 @@
 
 <p>
   <strong>Title:</strong>
-  <%= @survey.title %>
+  <%= @poll.title %>
 </p>
 
-<%= link_to 'Edit', edit_survey_path(@survey) %> |
-<%= link_to 'Back', surveys_path %>
+<%= link_to 'Edit', edit_poll_path(@poll) %> |
+<%= link_to 'Back', polls_path %>
 
 <% @questions.each do |question| %>
     <p><%= question.title %></p>

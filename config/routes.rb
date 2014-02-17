@@ -1,6 +1,6 @@
 Survey::Engine.routes.draw do
-  root to: "surveys#index"
-  resources :surveys do
+  root to: "polls#index"
+  resources :polls do
     resources :questions
   end
 end
