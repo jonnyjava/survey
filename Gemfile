@@ -10,8 +10,9 @@ gemspec
 # Git. Remember to move these dependencies to your gemspec before releasing
 # your gem to rubygems.org.
 
-# To use debugger
-# gem 'debugger'
-gem "better_errors", "~> 1.1.0"
-gem "binding_of_caller", "~> 0.7.2"
-gem "haml", "~> 4.0.5"
+gem 'jquery-rails'
+
+gem 'haml', '~> 4.0.5'
+
+gem 'better_errors', '~> 1.1.0'
+gem 'binding_of_caller', '~> 0.7.2'
