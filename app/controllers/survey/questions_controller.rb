@@ -6,7 +6,7 @@ module Survey
     before_filter :find_poll
     # GET /questions
     def index
-      @questions = Question.all
+      @questions = @poll.questions
     end
 
     # GET /questions/1
@@ -15,7 +15,7 @@ module Survey
 
     # GET /questions/new
     def new
-      @question = Question.new
+      @question = Survey::Question.new
     end
 
     # GET /questions/1/edit
@@ -24,10 +24,9 @@ module Survey
 
     # POST /questions
     def create
-      @question = Question.new(question_params)
-
+      @question = Survey::Question.new(question_params)
       if @question.save
-        redirect_to @question, notice: 'Question was successfully created.'
+        redirect_to poll_path(@poll), notice: 'Question was successfully created.'
       else
         render action: 'new'
       end
@@ -36,7 +35,7 @@ module Survey
     # PATCH/PUT /questions/1
     def update
       if @question.update(question_params)
-        redirect_to @question, notice: 'Question was successfully updated.'
+        redirect_to poll_path(@poll), notice: 'Question was successfully updated.'
       else
         render action: 'edit'
       end
@@ -45,7 +44,7 @@ module Survey
     # DELETE /questions/1
     def destroy
       @question.destroy
-      redirect_to questions_url, notice: 'Question was successfully destroyed.'
+      redirect_to poll_path(@poll), notice: 'Question was successfully destroyed.'
     end
 
     def find_poll
@@ -60,7 +59,7 @@ module Survey
 
       # Only allow a trusted parameter "white list" through.
       def question_params
-        params.require(:question).permit(:title)
+        params.require(:question).permit(:title, :poll_id)
       end
   end
 end

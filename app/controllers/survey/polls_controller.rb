@@ -12,6 +12,7 @@ module Survey
 
     # GET /polls/1
     def show
+      @questions = @poll.questions
     end
 
     # GET /polls/new
