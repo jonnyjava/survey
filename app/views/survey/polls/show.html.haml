@@ -1,13 +1,7 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @poll.title %>
-</p>
-
-<%= link_to 'Edit', edit_poll_path(@poll) %> |
-<%= link_to 'Back', polls_path %>
-
-<% @questions.each do |question| %>
-    <p><%= question.title %></p>
-<% end %>
+#notice= notice
+- if @poll
+  %h3 Title: #{ @poll.title }
+  = link_to 'Edit', edit_poll_path(@poll)
+  = link_to 'Back', polls_path
+%br
+= render "survey/questions/index"

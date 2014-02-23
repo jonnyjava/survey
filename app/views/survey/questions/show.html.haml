@@ -1,9 +1,5 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @question.title %>
-</p>
-
-<%= link_to 'Edit', edit_survey_question_path(@question) %> |
-<%= link_to 'Back', survey_questions_path %>
+#notice= notice
+- if @question
+  %h3 Title: #{ @question.title }
+  = link_to 'Edit', edit_poll_question_path(@poll, @question)
+  = link_to 'Back', poll_path(@poll)

@@ -1,23 +1,17 @@
-= form_for([@survey, @question]) do |f|
+= form_for([@poll, @question]) do |f|
   - if @question.errors.any?
     #error_explanation
-     %h2
-       = pluralize(@question.errors.count, "error")
-       prohibited this question from being saved:
-
-      <ul>
-      <% @question.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+      %h2
+        =pluralize(@question.errors.count, "error")
+        prohibited this poll from being saved
+      %ul
+        = @question.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :title
+    %br
+    = f.text_field :title
+    %br
+    = f.hidden_field(:poll_id, value: @poll.id)
+  .actions
+    = f.submit

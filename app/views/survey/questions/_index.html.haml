@@ -1,4 +1,4 @@
-%h1 Listing questions
+%h3 Questions:
 - if @questions
   %table
     %thead
@@ -8,7 +8,7 @@
       - @questions.each do |question|
         %tr
           %td= question.title
-          %td= link_to 'Show', question
-          %td= link_to 'Edit', edit_question_path(question)
-          %td= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' }
-  = link_to 'New question', new_question_path
+          %td= link_to 'Show', poll_question_path(@poll, question)
+          %td= link_to 'Edit', edit_poll_question_path(@poll, question)
+          %td= link_to 'Destroy', poll_question_path(@poll, question), method: :delete, data: { confirm: 'Are you sure?' }
+= link_to 'New question', new_poll_question_path(@poll)
