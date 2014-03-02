@@ -3,3 +3,5 @@
   %h3 Title: #{ @question.title }
   = link_to 'Edit', edit_poll_question_path(@poll, @question)
   = link_to 'Back', poll_path(@poll)
+%br
+= render "survey/question_options/index"

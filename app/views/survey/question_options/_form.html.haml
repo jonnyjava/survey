@@ -1,0 +1,17 @@
+= form_for([@poll, @question, @question_option]) do |f|
+  - if @question_option.errors.any?
+    #error_explanation
+      %h2
+        =pluralize(@question_option.errors.count, "error")
+        prohibited this poll from being saved
+      %ul
+        = @question_option.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :title
+    %br
+    = f.text_field :title
+    %br
+    = f.hidden_field(:question_id, value: @question.id)
+  .actions
+    = f.submit

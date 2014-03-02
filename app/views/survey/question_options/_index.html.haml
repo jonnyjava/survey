@@ -1,0 +1,16 @@
+%h3 Listing options for this question
+- if @question_options
+  %table
+    %thead
+      %tr
+        %th Title
+    %tbody
+      - @question_options.each do |question_option| 
+        %tr
+          %td= question_option.title
+          %td= link_to 'Show', poll_question_question_option_path(@poll, @question, question_option)
+          %td= link_to 'Edit', edit_poll_question_question_option_path(@poll, @question, question_option)
+          %td= link_to 'Destroy', poll_question_question_option_path(@poll, @question, question_option), method: :delete, data: { confirm: 'Are you sure?' }
+%br
+
+= link_to 'New Question option', new_poll_question_question_option_path(@poll, @question)

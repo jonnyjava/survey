@@ -4,13 +4,10 @@ module Survey
   class QuestionsController < ApplicationController
     before_action :set_question, only: [:show, :edit, :update, :destroy]
     before_filter :find_poll
-    # GET /questions
-    def index
-      @questions = @poll.questions
-    end
 
     # GET /questions/1
     def show
+      @question_options = @question.question_options
     end
 
     # GET /questions/new

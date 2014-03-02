@@ -1,0 +1,6 @@
+#notice= notice
+- if @question_option
+  %h3 Title: #{ @question_option.title }
+  = link_to 'Edit', edit_poll_question_question_option_path(@poll, @question, @question_option)
+  = link_to 'Back', poll_question_path(@poll, @question
+  )
