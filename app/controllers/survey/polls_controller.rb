@@ -9,7 +9,6 @@ module Survey
       @polls = Poll.all
     end
 
-
     # GET /polls/1
     def show
       @questions = @poll.questions
